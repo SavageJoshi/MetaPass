@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
+
 contract NFTMarketplace is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -122,86 +123,49 @@ contract NFTMarketplace is ERC721URIStorage {
         _transfer(msg.sender, address(this), tokenId);
     }
 
-    /* Creates the sale of a marketplace item */
-    /* Transfers ownership of the item, as well as funds between parties */
-    function createMarketSale(uint256 tokenId) public payable {
-        uint256 price = idToMarketItem[tokenId].price;
+    /* Creates the market sale */
+    function createMarketSale(uint256 tokenId)
+        public
+        payable
+    {
         require(
-            msg.value == price,
+            idToMarketItem[tokenId].price > 0,
+            "This item is not for sale"
+        );
+        require(
+            msg.value == idToMarketItem[tokenId].price,
             "Please submit the asking price in order to complete the purchase"
         );
+
+        address payable seller = idToMarketItem[tokenId].seller;
+        idToMarketItem[tokenId].seller.transfer(msg.value);
+        _transfer(address(this), msg.sender, tokenId);
         idToMarketItem[tokenId].owner = payable(msg.sender);
         idToMarketItem[tokenId].sold = true;
-        idToMarketItem[tokenId].seller = payable(address(0));
         _itemsSold.increment();
-        _transfer(address(this), msg.sender, tokenId);
-        payable(owner).transfer(listingPrice);
-        payable(idToMarketItem[tokenId].seller).transfer(msg.value);
     }
 
-    /* Returns all unsold market items */
-    function fetchMarketItems() public view returns (MarketItem[] memory) {
-        uint256 itemCount = _tokenIds.current();
-        uint256 unsoldItemCount = _tokenIds.current() - _itemsSold.current();
-        uint256 currentIndex = 0;
-
-        MarketItem[] memory items = new MarketItem[](unsoldItemCount);
-        for (uint256 i = 0; i < itemCount; i++) {
-            if (idToMarketItem[i + 1].owner == address(this)) {
-                uint256 currentId = i + 1;
-                MarketItem storage currentItem = idToMarketItem[currentId];
-                items[currentIndex] = currentItem;
-                currentIndex += 1;
-            }
-        }
-        return items;
+    /* Returns the token URI */
+    function getTokenURI(uint256 tokenId) public view returns (string memory) {
+        return tokenURI(tokenId);
     }
 
-    /* Returns only items that a user has purchased */
-    function fetchMyNFTs() public view returns (MarketItem[] memory) {
-        uint256 totalItemCount = _tokenIds.current();
-        uint256 itemCount = 0;
-        uint256 currentIndex = 0;
-
-        for (uint256 i = 0; i < totalItemCount; i++) {
-            if (idToMarketItem[i + 1].owner == msg.sender) {
-                itemCount += 1;
-            }
-        }
-
-        MarketItem[] memory items = new MarketItem[](itemCount);
-        for (uint256 i = 0; i < totalItemCount; i++) {
-            if (idToMarketItem[i + 1].owner == msg.sender) {
-                uint256 currentId = i + 1;
-                MarketItem storage currentItem = idToMarketItem[currentId];
-                items[currentIndex] = currentItem;
-                currentIndex += 1;
-            }
-        }
-        return items;
+    /* Returns the total number of tokens in circulation */
+    function getTotalSupply() public view returns (uint256) {
+        return _tokenIds.current();
     }
 
-    /* Returns only items a user has listed */
-    function fetchItemsListed() public view returns (MarketItem[] memory) {
-        uint256 totalItemCount = _tokenIds.current();
-        uint256 itemCount = 0;
-        uint256 currentIndex = 0;
+    /* Returns the total number of tokens sold */
+    function getItemsSold() public view returns (uint256) {
+        return _itemsSold.current();
+    }
 
-        for (uint256 i = 0; i < totalItemCount; i++) {
-            if (idToMarketItem[i + 1].seller == msg.sender) {
-                itemCount += 1;
-            }
-        }
-
-        MarketItem[] memory items = new MarketItem[](itemCount);
-        for (uint256 i = 0; i < totalItemCount; i++) {
-            if (idToMarketItem[i + 1].seller == msg.sender) {
-                uint256 currentId = i + 1;
-                MarketItem storage currentItem = idToMarketItem[currentId];
-                items[currentIndex] = currentItem;
-                currentIndex += 1;
-            }
-        }
-        return items;
+    /* Returns the market item details */
+    function getMarketItem(uint256 tokenId)
+        public
+        view
+        returns (MarketItem memory)
+    {
+        return idToMarketItem[tokenId];
     }
 }

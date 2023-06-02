@@ -25,17 +25,17 @@ const contactus = () => {
               <p>
                 Gokhale Education Societys R.H.Sapat College of Engineering  , Management Studies and Resaerch
               </p>
-            </div>
+            </div><br/>
             <div className={Style.contactus_box_box_left_item}>
-              <h3>💌 EMAIL</h3>
+              <h3>✉️EMAIL</h3>
               <p>ticketx@gmail.com</p>
             </div>
             <div className={Style.contactus_box_box_left_item}>
-              <h3>☎ PHONE</h3>
+              <h3>☎PHONE</h3>
               <p>9087654321</p>
             </div>
             <div className={Style.contactus_box_box_left_item}>
-              <h3>🌏 SOCIALS</h3>
+              <h3>🌏SOCIALS</h3>
               <a href="https://www.facebook.com/">
                 <TiSocialFacebook />
               </a>
@@ -79,7 +79,7 @@ const contactus = () => {
                   id=""
                   cols="30"
                   rows="6"
-                  placeholder="something about yourself in few words"
+                  placeholder=""
                 ></textarea>
               </div>
               <Button

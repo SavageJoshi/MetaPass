@@ -75,7 +75,7 @@ const Category = () => {
 
             <div className={Style.category_box_title}>
               <span>
-                <BsCircleFill />
+                {/* <BsCircleFill /> */}
               </span>
               <div className={Style.category_box_title_info}>
                 <h4>{el.name}</h4>

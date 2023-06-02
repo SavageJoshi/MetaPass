@@ -37,10 +37,10 @@ const Profile = ({ currentAccount }) => {
             </p>
           </div>
           <div className={Style.profile_menu_one_item}>
-            <FaRegImage />
-            <p>
+            {/* <FaRegImage /> */}
+            {/* <p>
               <Link href={{ pathname: "/author" }}>My Items</Link>
-            </p>
+            </p> */}
           </div>
           {/* <div className={Style.profile_menu_one_item}>
             <FaUserEdit />

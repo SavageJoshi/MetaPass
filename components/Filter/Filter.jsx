@@ -57,7 +57,7 @@ const Filter = () => {
 
   return (
     <div className={Style.filter}>
-      <div className={Style.filter_box}>
+      {/* <div className={Style.filter_box}>
         <div className={Style.filter_box_left}>
           <button onClick={() => {}}>NFTs</button>
           <button onClick={() => {}}>Arts</button>
@@ -75,16 +75,16 @@ const Filter = () => {
             <span>Filter</span> {filter ? <FaAngleDown /> : <FaAngleUp />}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {filter && (
         <div className={Style.filter_box_items}>
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div className={Style.filter_box_items_box_item}>
               <FaWallet /> <span>10 ETH</span>
               <AiFillCloseCircle />
             </div>
-          </div>
+          </div> */}
 
           <div className={Style.filter_box_items_box}>
             <div
@@ -111,17 +111,17 @@ const Filter = () => {
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openMusic()}
             >
-              <FaMusic /> <small>Musics</small>
+              <FaMusic /> <small>Music</small>
               {music ? <AiFillCloseCircle /> : <TiTick />}
             </div>
           </div>
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div className={Style.filter_box_items_box_item}>
               <FaUserAlt /> <span>Verified</span>
               <MdVerified />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

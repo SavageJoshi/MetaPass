@@ -1,11 +1,17 @@
 .bigNFTSlider_box{
     margin:  0 auto;
-    width: 80%;
+    width: 60%;
     padding-block: 8rem; 
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     align-items: center;
+}
+
+.sliderText{
+    margin: 1em;
+    font-size: 18px;
+    text-align: justify;
 }
 
 .bigNFTSlider_box_left{

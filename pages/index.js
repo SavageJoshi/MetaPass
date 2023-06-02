@@ -48,11 +48,13 @@ const Home = () => {
       <HeroSection />
       <br />
       <br />
-      <BigNFTSilder />
+      <div>
+        <BigNFTSilder />
+      </div>
       <br />
       <br />
-      <Slider />
-      <Collection />
+      {/* <Slider /> */}
+      {/* <Collection /> */}
       <br />
       <br />
       <Title

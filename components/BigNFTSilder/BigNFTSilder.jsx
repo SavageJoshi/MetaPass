@@ -18,65 +18,38 @@ const BigNFTSilder = () => {
 
   const sliderData = [
     {
-      title: "Event Name",
+      title: "What is NFT?",
       id: 1,
-      name: "Creator Name",
-      price: "00664 ETH",
-      like: 243,
-      image: images.user1,
       nftImage: images.nft_image_1,
-      time: {
-        days: 21,
-        hours: 40,
-        minutes: 81,
-        seconds: 15,
-      },
+      text: "NFT, or Non-Fungible Token, is a special type of digital asset that is unique and cannot be exchanged for another asset of equal value. It's like a digital certificate of ownership for something that is one-of-a-kind, such as a piece of artwork, a rare collectible, or a virtual item in a video game. Each NFT has its own unique code that is stored on a blockchain, making it secure and verifiable. NFTs have gained popularity in recent years as a way to buy, sell, and trade digital assets and are being used in a variety of industries, from art and music to sports and gaming."
     },
     {
-      title: "Event Name",
+      title: "What Is Blockchain?",
       id: 2,
-      name: "Creator Name",
-      price: "0000004 ETH",
-      like: 243,
-      image: images.user2,
       nftImage: images.nft_image_2,
-      time: {
-        days: 77,
-        hours: 11,
-        minutes: 21,
-        seconds: 45,
-      },
+      text:" Blockchain is a special way of keeping track of information on the internet. It's like a big notebook that many people can write in at the same time. Each time someone writes something new, it gets added to the notebook and everyone can see it. The notebook is very secure, so once something is written in it, it can't be changed or erased. This makes it a great way to keep track of things like money, property, or any other important information that needs to be kept safe and verified."
     },
     {
-      title: "Event Name",
+      title: "Why should we use NFTs as Tickets?",
       id: 3,
-      name: "Creator Name",
-      price: "0000064 ETH",
-      like: 243,
-      image: images.user3,
       nftImage: images.nft_image_3,
-      time: {
-        days: 37,
-        hours: 20,
-        minutes: 11,
-        seconds: 55,
-      },
+      text: "Using NFTs as tickets provides numerous advantages. NFTs offer unique digital ownership, traceable authenticity, and easy transferability. They eliminate counterfeiting risks and enable verifiable ticketing, reducing fraud. NFTs also allow seamless integration with digital platforms, offering enhanced ticketing experiences, personalization, and potential for additional revenue streams through resale and collectibility.By leveraging blockchain technology, NFTs as tickets provide transparency, immutability, and decentralized control, ensuring a secure and trustworthy ticketing ecosystem for event organizers and attendees alike.      "
     },
-    {
-      title: "Home NFT",
-      id: 4,
-      name: "Raayan Hussain",
-      price: "4664 ETH",
-      like: 243,
-      image: images.user4,
-      nftImage: images.nft_image_1,
-      time: {
-        days: 87,
-        hours: 29,
-        minutes: 10,
-        seconds: 15,
-      },
-    },
+    // {
+    //   title: "Home NFT",
+    //   id: 4,
+    //   name: "Raayan Hussain",
+    //   price: "4664 ETH",
+    //   like: 243,
+    //   image: images.user4,
+    //   nftImage: images.nft_image_1,
+    //   time: {
+    //     days: 87,
+    //     hours: 29,
+    //     minutes: 10,
+    //     seconds: 15,
+    //   },
+    // },
   ];
 
   //-------INC
@@ -97,8 +70,11 @@ const BigNFTSilder = () => {
     <div className={Style.bigNFTSlider}>
       <div className={Style.bigNFTSlider_box}>
         <div className={Style.bigNFTSlider_box_left}>
-          <h2>{sliderData[idNumber].title}</h2>
-          <div className={Style.bigNFTSlider_box_left_creator}>
+          <h1>{sliderData[idNumber].title}</h1>
+          <br/>
+          <p className={Style.sliderText}>{sliderData[idNumber].text}</p>
+        
+          {/* <div className={Style.bigNFTSlider_box_left_creator}>
             <div className={Style.bigNFTSlider_box_left_creator_profile}>
               <Image
                 className={Style.bigNFTSlider_box_left_creator_profile_img}
@@ -117,57 +93,27 @@ const BigNFTSilder = () => {
                 </h4>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className={Style.bigNFTSlider_box_left_bidding}>
-            <div className={Style.bigNFTSlider_box_left_bidding_box}>
+            {/* <div className={Style.bigNFTSlider_box_left_bidding_box}>
               <small>Current Price</small>
               <p>
                 {sliderData[idNumber].price}
               </p>
-            </div>
+            </div> */}
 
-            <p className={Style.bigNFTSlider_box_left_bidding_box_auction}>
+            {/* <p className={Style.bigNFTSlider_box_left_bidding_box_auction}>
               <MdTimer
                 className={Style.bigNFTSlider_box_left_bidding_box_icon}
               />
               <span>Event starts in</span>
-            </p>
+            </p> */}
 
-            { <div className={Style.bigNFTSlider_box_left_bidding_box_timer}>
-              <div
-                className={Style.bigNFTSlider_box_left_bidding_box_timer_item}
-              >
-                <p>{sliderData[idNumber].time.days}</p>
-                <span>Days</span>
-              </div>
-
-              <div
-                className={Style.bigNFTSlider_box_left_bidding_box_timer_item}
-              >
-                <p>{sliderData[idNumber].time.hours}</p>
-                <span>Hours</span>
-              </div>
-
-              <div
-                className={Style.bigNFTSlider_box_left_bidding_box_timer_item}
-              >
-                <p>{sliderData[idNumber].time.minutes}</p>
-                <span>mins</span>
-              </div>
-
-              <div
-                className={Style.bigNFTSlider_box_left_bidding_box_timer_item}
-              >
-                <p>{sliderData[idNumber].time.seconds}</p>
-                <span>secs</span>
-              </div>
-            </div> }
-
-            <div className={Style.bigNFTSlider_box_left_button}>
+            {/* <div className={Style.bigNFTSlider_box_left_button}>
               <Button btnName="Buy Ticket" handleClick={() => router.push("/searchPage")} />
               <Button btnName="View Event" handleClick={() => router.push("/searchPage")} />
-            </div>
+            </div> */}
           </div>
 
           <div className={Style.bigNFTSlider_box_left_sliderBtn}>

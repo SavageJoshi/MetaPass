@@ -57,7 +57,7 @@ const UloadNFT = ({ uploadToIPFS, createNFT }) => {
   return (
     <div className={Style.upload}>
       <DropZone
-        title="JPG, PNG, WEBM , MAX 100MB"
+        title="JPG, PNG, JPEG - MAX 100MB"
         heading="Drag & drop file"
         subHeading="or Browse media on your device to create NFT tickets"
         name={name}
@@ -96,11 +96,11 @@ const UloadNFT = ({ uploadToIPFS, createNFT }) => {
             />
           </div>
 
-          <p className={Style.upload_box_input_para}>
+          {/* <p className={Style.upload_box_input_para}>
             Ciscrypt will include a link to this URL on this item's detail page,
             so that users can click to learn more about it. You are welcome to
             link to your own webpage with more details.
-          </p>
+          </p> */}
         </div>
 
         <div className={formStyle.Form_box_input}>
@@ -189,7 +189,7 @@ const UloadNFT = ({ uploadToIPFS, createNFT }) => {
               </div>
               <input
                 type="Number"
-                placeholder="100"
+                placeholder="0"
                 onChange={(e) => setProperties(e.target.value)}
               />
             </div>
@@ -229,11 +229,11 @@ const UloadNFT = ({ uploadToIPFS, createNFT }) => {
             }
             classStyle={Style.upload_box_btn_style}
           />
-          <Button
+          {/* <Button
             btnName="Preview"
             handleClick={() => {}}
             classStyle={Style.upload_box_btn_style}
-          />
+          /> */}
         </div>
       </div>
     </div>

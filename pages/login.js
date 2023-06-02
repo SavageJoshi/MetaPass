@@ -22,7 +22,7 @@ const connectWallet = () => {
       <div className={Style.connectWallet_box}>
         <h1>Sign In</h1>
         <p className={Style.connectWallet_box_para}>
-          Sign in by Connecting with one of our avaliabl wallet providers
+          Sign in by Connecting with your Metamask Wallet
         </p>
 
         <div className={Style.connectWallet_box_provider}>

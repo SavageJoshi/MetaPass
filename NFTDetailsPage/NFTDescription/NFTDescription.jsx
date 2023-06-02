@@ -186,7 +186,7 @@ const NFTDescription = ({ nft }) => {
               </div>
             </div>
 
-            <div className={Style.NFTDescription_box_profile_box_right}>
+            {/* <div className={Style.NFTDescription_box_profile_box_right}>
               <Image
                 src={images.creatorbackground1}
                 alt="profile"
@@ -201,7 +201,7 @@ const NFTDescription = ({ nft }) => {
                   Event Name <MdVerified />
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className={Style.NFTDescription_box_profile_biding}>

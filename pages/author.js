@@ -83,8 +83,7 @@ const author = () => {
       <Banner bannerImage={images.creatorbackground2} />
       <AuthorProfileCard currentAccount={currentAccount} />
 
-      <br />
-      <br />
+    
       <Title
       heading = "Resale"
       paragraph = "go to your owned NFTs and click on it to resale it!"

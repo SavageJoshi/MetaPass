@@ -63,14 +63,14 @@ const searchPage = () => {
   // ];
   return (
     <div className={Style.searchPage}>
-      <Banner bannerImage={images.creatorbackground2} />
+      <Banner bannerImage={images.creatorbackground3} />
       <SearchBar
         onHandleSearch={onHandleSearch}
         onClearSearch={onClearSearch}
       />
       <Filter />
       {nfts.length == 0 ? <Loader /> : <NFTCardTwo NFTData={nfts} />}
-      <Slider />
+      {/* <Slider /> */}
       <Brand />
     </div>
   );

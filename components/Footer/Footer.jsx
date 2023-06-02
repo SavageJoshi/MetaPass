@@ -71,9 +71,7 @@ const Footer = () => {
           <Button btnName="Contact Us!" handleClick={() => router.push("/contactus")}/>
           
           <div className={Style.subscribe_box_info}>
-            <p>
-            Connect with us and let us take care of all the hassle where you get to relax!
-            </p>
+            <p>Connect with us and let us take care of all the hassle where you get to relax!</p>
           </div>
         </div>
       </div>
